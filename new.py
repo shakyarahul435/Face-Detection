@@ -37,10 +37,7 @@ def main():
 
         #while True:
         for i in range(1):
-            if(time.time() - start_time_temp < duration):
-                print(time.time()-start_time_temp)
-                #st.write(start_time_temp)
-                #st.write(time.time())
+            
                 ret, frame = cap.read()
 
                 # Break the loop if there's an issue reading the frame
@@ -53,12 +50,7 @@ def main():
 
                 # Display the updated frame using st.image
                 st.image(frame_with_faces, channels="BGR", use_column_width=True, caption="Frame with Detected Faces")
-
-            # Pause to control the frame rate (adjust the value as needed)
-            #st.experimental_rerun()
-            #st.experimental_rerun_on_timeout(100)  # Rerun the script every 100 milliseconds
-
-        # Release the camera when the loop is broken
+            
         cap.release()
 
 if __name__ == "__main__":
