@@ -2,6 +2,7 @@ import streamlit as st
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
+import time
 
 def detect_faces(frame):
     # Convert the frame to grayscale
@@ -31,21 +32,27 @@ def main():
             st.error("Error: Unable to open camera.")
             return
 
-        start_time = time.time()
-        st.write(start_time)
-        while True:
-            ret, frame = cap.read()
+        start_time_temp = time.time()
+        duration = 10  
 
-            # Break the loop if there's an issue reading the frame
-            if not ret:
-                st.error("Error: Unable to read frame.")
-                break
+        #while True:
+        for i in range(1):
+            if(time.time() - start_time_temp < duration):
+                print(time.time()-start_time_temp)
+                #st.write(start_time_temp)
+                #st.write(time.time())
+                ret, frame = cap.read()
 
-            # Detect faces and update the frame
-            frame_with_faces = detect_faces(frame)
+                # Break the loop if there's an issue reading the frame
+                if not ret:
+                    st.error("Error: Unable to read frame.")
+                    break
 
-            # Display the updated frame using st.image
-            st.image(frame_with_faces, channels="BGR", use_column_width=True, caption="Frame with Detected Faces")
+                # Detect faces and update the frame
+                frame_with_faces = detect_faces(frame)
+
+                # Display the updated frame using st.image
+                st.image(frame_with_faces, channels="BGR", use_column_width=True, caption="Frame with Detected Faces")
 
             # Pause to control the frame rate (adjust the value as needed)
             #st.experimental_rerun()
