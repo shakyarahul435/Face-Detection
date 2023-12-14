@@ -31,6 +31,8 @@ def main():
             st.error("Error: Unable to open camera.")
             return
 
+        start_time = time.time()
+        st.write(start_time)
         while True:
             ret, frame = cap.read()
 
@@ -47,6 +49,7 @@ def main():
 
             # Pause to control the frame rate (adjust the value as needed)
             #st.experimental_rerun()
+            #st.experimental_rerun_on_timeout(100)  # Rerun the script every 100 milliseconds
 
         # Release the camera when the loop is broken
         cap.release()
