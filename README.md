@@ -44,11 +44,12 @@ streamlit run new.py
 The browser will automatically open the Streamlit interface.
 Click on "Open Camera" to start real-time face detection.
 
-Build By:
-Rahul Shakya
-
 ⚙️ How It Works
 - When you click "Open Camera", the webcam feed is activated.
 - The script converts each frame to grayscale.
 - OpenCV’s Haar Cascade Classifier detects faces within the frame.
 - Detected faces are highlighted with green rectangles and displayed in the app.
+
+
+Build By:
+- Rahul Shakya
