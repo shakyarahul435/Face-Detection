@@ -52,4 +52,4 @@ Click on "Open Camera" to start real-time face detection.
 
 
 Build By:
-- Rahul Shakya
+Rahul Shakya
